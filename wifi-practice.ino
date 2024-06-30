@@ -36,34 +36,34 @@ void handleOpenDoorRequest() {
 }
 
 void InitWebServer() {
-	server.on("/", HTTP_GET, handleHealthCheckRequest);
+  server.on("/", HTTP_GET, handleHealthCheckRequest);
   server.on("/open", HTTP_POST, handleOpenDoorRequest);
 
   server.begin();
 }
 
 void setup() {
-	Serial.begin(115200);
+  Serial.begin(115200);
   
   Serial.print("ssid : ");
   Serail.println(ssid);
   Serial.print("password : ");
   Serail.println(password);
 
-	WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-	  Serial.print(".");
-	}
+    Serial.print(".");
+  }
 
   InitWebServer(); 
-
-	Serial.print("Wifi IP: ");
-	Serial.println(WiFi.localIP());
+  
+  Serial.print("Wifi IP: ");
+  Serial.println(WiFi.localIP());
   Serial.println("HTTP Server Started");
 
-	delay(100); 
+  delay(100); 
 }
 
 void loop() {
