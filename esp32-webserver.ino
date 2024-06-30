@@ -53,7 +53,7 @@ void openDoor() {
   server.send(200, "text/html", open_door_html);
 }
 
-int closeDoorSerialCommand = 1;
+int closeDoorSerialCommand = 2;
 void closeDoor() {
   Serial2.write(closeDoorSerialCommand);
   Serial.println("close door serial command sended");
