@@ -61,7 +61,7 @@ void closeDoor() {
 }
 
 void InitWebServer() {
-	server.on("/", HTTP_GET, healthCheck);
+  server.on("/", HTTP_GET, healthCheck);
   server.on("/open", HTTP_POST, openDoor);
   server.on("/close", HTTP_POST, closeDoor);
 
@@ -69,26 +69,26 @@ void InitWebServer() {
 }
 
 void setup() {
-	Serial.begin(115200);
+  Serial.begin(115200);
   Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);
 
-	Serial.println("Waiting");
-	Serial.println(ssid);
+  Serial.println("Waiting");
+  Serial.println(ssid);
 
-	WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-	  Serial.print(".");
-	}
+    Serial.print(".");
+  }
     
-	Serial.print("WiFi IP: ");
-	Serial.println(WiFi.localIP());
+  Serial.print("WiFi IP: ");
+  Serial.println(WiFi.localIP());
 
-	InitWebServer(); 
+  InitWebServer(); 
     
-	Serial.println("HTTP Server Started");
-	delay(100); 
+  Serial.println("HTTP Server Started");
+  delay(100); 
 }
 
 void loop() {
