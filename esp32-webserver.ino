@@ -60,7 +60,7 @@ void closeDoor() {
   server.send(200, "text/html", close_door_html);
 }
 
-void InitWebServer() {
+void initWebServer() {
   server.on("/", HTTP_GET, healthCheck);
   server.on("/open", HTTP_POST, openDoor);
   server.on("/close", HTTP_POST, closeDoor);
@@ -85,7 +85,7 @@ void setup() {
   Serial.print("WiFi IP: ");
   Serial.println(WiFi.localIP());
 
-  InitWebServer(); 
+  initWebServer(); 
     
   Serial.println("HTTP Server Started");
   delay(100); 
